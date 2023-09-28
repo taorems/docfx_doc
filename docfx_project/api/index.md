@@ -58,7 +58,7 @@ To perform the calculations for testing:
 1. Give asset ID in asset_id parameter and execeute the endpoint.
 1. This display the results of the equivalent distance and the total damage for the asset.
 
-## Comment operations:
+## Comment operations
 To keep track of comments, a separate database is created.
 Operations can, but do not have to, include comments. 
 When the operation is made, the comment in the create operation call, if any, is added to the comment database as the first comment.
