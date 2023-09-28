@@ -1,6 +1,10 @@
 # Your GitHub workflow file under .github/workflows/
+name: Documentation CI
 
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
