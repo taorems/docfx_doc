@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Jacking System Design Life - set up. </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Jacking System Design Life - set up. ">
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/taorems/docfx_doc/blob/main/docfx_project/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './public/main.js'
+    import { init } from './public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="jacking-system-design-life---set-up"><strong>Jacking System Design Life - set up</strong>.</h1>
+
+<p>GustoMSC OSS Jacking System Design Life
+<a href="https://github.com/NationalOilwellVarco/oss-jacking-maintenance/actions/workflows/service-jacking-maintenance-python-cicd.yml"><img src="https://github.com/NationalOilwellVarco/oss-jacking-maintenance/actions/workflows/service-jacking-maintenance-python-cicd.yml/badge.svg" alt="service-jacking-maintenance-python-cicd"></a></p>
+<h2 id="dev-run">Dev Run</h2>
+<p>To run a intance of the app with a database included, run the powershell script run.dev.ps1.</p>
+<p>To access the swagger interface go to http://localhost:8080/docs</p>
+<p>Below the procedure to create an asset are described.</p>
+<p>A utility script is provided to create an asset and add operations to it. This script is located in the /app/utils/ folder and is called add_asset.py. The fastapi server needs to be running for it to work. The script can be run with the following command:</p>
+<pre><code class="lang-bash">docker exec CONTAINER_ID python ./app/utils/add_asset.py
+</code></pre>
+<p>Where CONTAINER_ID is the ID of the container running the fastapi server, you can find this with <code>docker ps</code>.</p>
+<p>The script will create an asset, add operations to it, do equivalent damage and total damage calculations. The asset ID is printed to the console. This ID can be used to access the asset in the other endpoints.</p>
+<h3 id="creating-an-asset">Creating an asset</h3>
+<p>To create asset for testing:</p>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/assets/upload_files</code> endpoint.</li>
+<li>Give asset name in asset_name parameter</li>
+<li>For file_bin_settings_parameter use /config/bin_settings.json file</li>
+<li>For the file_design_life bin use /config/design_life.json</li>
+<li>Execute the endpoint with the files.</li>
+</ol>
+<p>After execution you should see a succesfull response and the asset should be created in the database.</p>
+<p>It is given an id, which is used to access the asset in the other endpoints.</p>
+<h3 id="adding-operations-to-an-asset">Adding operations to an asset</h3>
+<p>To add operations to an asset for testing:</p>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/operations/operations_from_json_file</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter</li>
+<li>For the file_operations bin use /config/operations.json</li>
+<li>Execute the endpoint with the files.</li>
+</ol>
+<p>After execution you should see a succesfull response with the created operations and the operations should be created in the database.</p>
+<h3 id="perform-the-calculations">Perform the calculations</h3>
+<p>To perform the calculations for testing:</p>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/logic/calculate_equivalent_distance/asset/{asset_id}</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter and execeute the endpoint.</li>
+<li>This will calculate the equivalent distance for the asset and return the result.</li>
+<li>Go to the <code>/api/v1/logic/calculate_total_damage/asset/{asset_id}/asset/{asset_id}</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter and execeute the endpoint.</li>
+<li>This will calculate the total damage for the asset and return the result.</li>
+</ol>
+<h3 id="to-display-the-results-for-a-dashboard-call">To display the results for a dashboard call</h3>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/logic/dashboard/update/{asset_id}</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter and execeute the endpoint.</li>
+<li>This display the results of the equivalent distance and the total damage for the asset.</li>
+</ol>
+<h2 id="comment-operations">Comment operations:</h2>
+<p>To keep track of comments, a separate database is created.
+Operations can, but do not have to, include comments.
+When the operation is made, the comment in the create operation call, if any, is added to the comment database as the first comment.
+The comment database is a list of comments, where each comment is a dictionary with the following keys:</p>
+<ul>
+<li><code>comment</code>: The comment itself</li>
+<li><code>operation_id</code>: The id of the operation that the comment is associated with</li>
+<li><code>id</code>: The id of the comment</li>
+</ul>
+<p>In the backend there are two ways of adding comments to an operation.</p>
+<ul>
+<li>During a create operation call, the comment is added to the comment database as the first comment.</li>
+<li>Using the <code>add_comment</code> POST endpoint, a comment can be added to an existing operation, using its id</li>
+</ul>
+<p>There is also a <code>delete_comment</code>  endpoint, which deletes a comment from the comment database.</p>
+<p>Comments can be read in two ways:</p>
+<ul>
+<li>Using the <code>read_comments</code> GET endpoint, which returns all comments in the comment database for a given operation id.</li>
+<li>Using the <code>read_operation</code> GET endpoint, which returns the operation with the given id, including all comments.</li>
+</ul>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/taorems/docfx_doc/blob/main/docfx_project/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
