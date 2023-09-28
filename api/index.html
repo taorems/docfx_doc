@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>PLACEHOLDER </title>
+      <title>Quickstart </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="PLACEHOLDER ">
+      <meta name="title" content="Quickstart ">
       
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -83,9 +83,79 @@
         </div>
 
         <article data-uid="">
-<h1 id="placeholder">PLACEHOLDER</h1>
+<h1 id="quickstart"><strong>Quickstart</strong></h1>
 
-<p>TODO: Add .NET projects to the <em>src</em> folder and run <code>docfx</code> to generate <strong>REAL</strong> <em>API Documentation</em>!</p>
+<p>This is a quick setup guide on how to spin up the application.</p>
+<h2 id="dev-run">Dev Run</h2>
+<p>To run an instance of the app with a database included, run the powershell script run.dev.ps1.</p>
+<p>To access the swagger interface go to http://localhost:8080/docs</p>
+<p>Below the procedure to create an asset are described.</p>
+<p>A utility script is provided to create an asset and add operations to it. This script is located in the /app/utils/ folder and is called add_asset.py. The fastapi server needs to be running for it to work. The script can be run with the following command:</p>
+<pre><code class="lang-bash">docker exec CONTAINER_ID python ./app/utils/add_asset.py
+</code></pre>
+<p>Where CONTAINER_ID is the ID of the container running the fastapi server, you can find this with <code>docker ps</code>.</p>
+<p>The script will create an asset, add operations to it, do equivalent damage and total damage calculations. The asset ID is printed to the console. This ID can be used to access the asset in the other endpoints.</p>
+<h3 id="creating-an-asset">Creating an asset</h3>
+<p>To create asset for testing:</p>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/assets/upload_files</code> endpoint.</li>
+<li>Give asset name in asset_name parameter</li>
+<li>For file_bin_settings_parameter use /config/bin_settings.json file</li>
+<li>For the file_design_life bin use /config/design_life.json</li>
+<li>Execute the endpoint with the files.</li>
+</ol>
+<p>After execution you should see a succesfull response and the asset should be created in the database.</p>
+<p>It is given an id, which is used to access the asset in the other endpoints.</p>
+<h3 id="adding-operations-to-an-asset">Adding operations to an asset</h3>
+<p>To add operations to an asset for testing:</p>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/operations/operations_from_json_file</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter</li>
+<li>For the file_operations bin use /config/operations.json</li>
+<li>Execute the endpoint with the files.</li>
+</ol>
+<p>After execution you should see a succesfull response with the created operations and the operations should be created in the database.</p>
+<h3 id="perform-the-calculations">Perform the calculations</h3>
+<p>To perform the calculations for testing:</p>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/logic/calculate_equivalent_distance/asset/{asset_id}</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter and execeute the endpoint.</li>
+<li>This will calculate the equivalent distance for the asset and return the result.</li>
+<li>Go to the <code>/api/v1/logic/calculate_total_damage/asset/{asset_id}/asset/{asset_id}</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter and execeute the endpoint.</li>
+<li>This will calculate the total damage for the asset and return the result.</li>
+</ol>
+<h3 id="to-display-the-results-for-a-dashboard-call">To display the results for a dashboard call</h3>
+<ol>
+<li>Access the swagger ui</li>
+<li>Go to the <code>/api/v1/logic/dashboard/update/{asset_id}</code> endpoint.</li>
+<li>Give asset ID in asset_id parameter and execeute the endpoint.</li>
+<li>This display the results of the equivalent distance and the total damage for the asset.</li>
+</ol>
+<h2 id="comment-operations">Comment operations:</h2>
+<p>To keep track of comments, a separate database is created.
+Operations can, but do not have to, include comments.
+When the operation is made, the comment in the create operation call, if any, is added to the comment database as the first comment.
+The comment database is a list of comments, where each comment is a dictionary with the following keys:</p>
+<ul>
+<li><code>comment</code>: The comment itself</li>
+<li><code>operation_id</code>: The id of the operation that the comment is associated with</li>
+<li><code>id</code>: The id of the comment</li>
+</ul>
+<p>In the backend there are two ways of adding comments to an operation.</p>
+<ul>
+<li>During a create operation call, the comment is added to the comment database as the first comment.</li>
+<li>Using the <code>add_comment</code> POST endpoint, a comment can be added to an existing operation, using its id</li>
+</ul>
+<p>There is also a <code>delete_comment</code>  endpoint, which deletes a comment from the comment database.</p>
+<p>Comments can be read in two ways:</p>
+<ul>
+<li>Using the <code>read_comments</code> GET endpoint, which returns all comments in the comment database for a given operation id.</li>
+<li>Using the <code>read_operation</code> GET endpoint, which returns the operation with the given id, including all comments.</li>
+</ul>
 </article>
 
         <div class="contribution d-print-none">
