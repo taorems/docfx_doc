@@ -1,5 +1,4 @@
 {
-  "homepages": [],
   "source_base_path": "/home/runner/work/docfx_doc/docfx_doc/docfx_project",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -60,7 +59,6 @@
       "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
