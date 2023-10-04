@@ -1,6 +1,6 @@
-# **Jacking System Design Life**
+# **Test documentation using docfx**
 
-Welcome to the landing page of the jacking system design life documentation. This is an OSS web application for monitoring the design life of a jacking system. It is developed by the *OSS digital solutions* team. 
+Welcome to the landing page of the test documentation. This is an application for source code documentation. It is developed by the *A team*. 
 
 Browse through the contents to find out its set up and usage guide.
 
