@@ -14,8 +14,8 @@
 
 ## Code Snippet
 - Add code snippet by using this command
-[!code-csharp[] (./src/calculator.cs #L8-L13)]
+[!code-csharp[] (../src/calculator.cs#L8-L13)]
 
 ## Images
 - Image can be added using this command
-[!<alt-text>](./images/image_syntax.jpg)
+[!<alt-text>](../images/image_syntax.jpg)
