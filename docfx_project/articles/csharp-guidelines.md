@@ -11,3 +11,11 @@
 ## Commenting
 - Use XML comments on all classes and public methods
 - Don't use comments for obvious logic
+
+## Code Snippet
+- Add code snippet by using this command
+[!code-csharp[] (./src/calculator.cs #L8-L13)]
+
+## Images
+- Image can be added using this command
+[!<alt-text>](./images/image_syntax.jpg)
