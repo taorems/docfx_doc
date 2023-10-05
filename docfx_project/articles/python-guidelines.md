@@ -4,4 +4,4 @@
 
 - Add code snippet like this:
 
-[!code-py[] (../src/calculator.cs#L8-L13)]
+[!code-py[] (../src/math_operations.py#L8-L13)]
