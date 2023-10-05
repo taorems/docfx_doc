@@ -14,8 +14,38 @@
 
 ## Code Snippet
 - Add code snippet by using this command
+
+```markdown
+[!code-csharp[] (../src/calculator.cs#L8-L13)]
+```
+
+- The result is as follows:
+
 [!code-csharp[] (../src/calculator.cs#L8-L13)]
 
 ## Images
 - Image can be added using this command
-[!<alt-text>](../images/image_syntax.jpg)
+[!<alt-text>](../images/image_syntax.png)
+
+## Alerts
+
+Alerts are block quotes that render with colors and icons that indicate the significance of the content.
+
+The following alert types are supported:
+
+```markdown
+> [!NOTE]
+> Information the user should notice even if skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]
+> Essential information required for user success.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+> [!WARNING]
+> Dangerous certain consequences of an action.
+```
