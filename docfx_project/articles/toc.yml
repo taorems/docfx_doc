@@ -6,3 +6,6 @@
 
 - name: Testing
   href: testing.md
+
+- name: Python Engineering Guidelines
+  href: python-guidelines.md  
