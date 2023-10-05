@@ -25,7 +25,13 @@
 
 ## Images
 - Image can be added using this command
-[!<alt-text>](../images/image_syntax.png)
+
+```markdown
+![<alt-text>](../images/image_syntax.png)
+```
+- The result is as follows:
+
+![<alt-text>](../images/image_syntax.png)
 
 ## Alerts
 
@@ -49,3 +55,20 @@ The following alert types are supported:
 > [!WARNING]
 > Dangerous certain consequences of an action.
 ```
+
+They look like this in rendered page:
+
+> [!NOTE]
+> Information the user should notice even if skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]
+> Essential information required for user success.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+> [!WARNING]
+> Dangerous certain consequences of an action.
