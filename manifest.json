@@ -13,6 +13,10 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink",
+        "codesnippet-not-found"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/csharp-guidelines.md",
       "output": {
@@ -56,6 +60,16 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/image_syntax.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/image_syntax.jpg"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -67,18 +81,15 @@
     },
     {
       "type": "RestApi",
-      "source_relative_path": "restapi/swagger.json",
+      "source_relative_path": "restapi/petstore.json",
       "output": {
         ".html": {
-          "relative_path": "restapi/swagger.html"
+          "relative_path": "restapi/petstore.html"
         }
       },
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Toc",
       "source_relative_path": "restapi/toc.md",
       "output": {
@@ -92,9 +103,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
