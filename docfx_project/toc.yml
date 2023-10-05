@@ -1,6 +1,6 @@
-- name: Articles
+- name: Coding Guidelines
   href: articles/
-- name: Api Documentation
+- name: Source Code
   href: api/
   homepage: api/index.md
 - name: REST API
