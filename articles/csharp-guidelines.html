@@ -105,6 +105,11 @@
 <ul>
 <li>Add code snippet by using this command</li>
 </ul>
+<pre><code class="lang-markdown">[!code-csharp[] (../src/calculator.cs#L8-L13)]
+</code></pre>
+<ul>
+<li>The result is as follows:</li>
+</ul>
 <pre><code class="lang-csharp">/// &lt;summary&gt;
 /// Takes two numbers and adds them together
 /// &lt;/summary&gt;
@@ -114,8 +119,26 @@
 </code></pre><h2 id="images">Images</h2>
 <ul>
 <li>Image can be added using this command
-<a href="../images/image_syntax.jpg">!<alt-text></alt-text></a></li>
+<a href="../images/image_syntax.png">!<alt-text></alt-text></a></li>
 </ul>
+<h2 id="alerts">Alerts</h2>
+<p>Alerts are block quotes that render with colors and icons that indicate the significance of the content.</p>
+<p>The following alert types are supported:</p>
+<pre><code class="lang-markdown">&gt; [!NOTE]
+&gt; Information the user should notice even if skimming.
+
+&gt; [!TIP]
+&gt; Optional information to help a user be more successful.
+
+&gt; [!IMPORTANT]
+&gt; Essential information required for user success.
+
+&gt; [!CAUTION]
+&gt; Negative potential consequences of an action.
+
+&gt; [!WARNING]
+&gt; Dangerous certain consequences of an action.
+</code></pre>
 </article>
 
         <div class="contribution d-print-none">
